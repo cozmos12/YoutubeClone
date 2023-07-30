@@ -31,7 +31,7 @@ export class SaveVideoComponent implements OnInit {
   tags: string[] = [];
   videoId='';
   fileSelected = false
-  videoUrl!:string;
+ public videoUrl!:string;
 
 
   announcer = inject(LiveAnnouncer);
@@ -49,10 +49,11 @@ export class SaveVideoComponent implements OnInit {
     // @ts-ignore
     this.videoId=this.activatedRoute.snapshot.params.videoId;
     this.videoService.getVideo(this.videoId).subscribe(data=>{
+      console.log("first"+data.videoUrl)
       this.videoUrl=data.videoUrl;
       this.thumnailUrl=data.thumbnailUrl;
-      console.log(data.videoUrl);
-      console.log(this.videoUrl);
+      console.log("teast"+data.videoUrl);
+      console.log("test"+this.videoUrl);
     })
     this.saveVideoForm = new FormGroup({
       videoStatus:this.videoStatus,

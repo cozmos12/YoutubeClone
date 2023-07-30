@@ -8,15 +8,22 @@ import {VgApiService} from "@videogular/ngx-videogular/core";
 })
 export class VideoPlayerComponent implements OnInit {
   @Input()
-  videoUrl! : string | '' ;
+  public videoUrl! : string | ''
+
+
+
+
   constructor() {
   }
   ngOnInit(): void {
   }
 
 
-  onPlayerReady($event: VgApiService) {
-
-    console.log("videoUrl"+this.videoUrl)
+  deneme(){
+    console.log("deneme"+this.videoUrl)
   }
+
+
+
+
 }

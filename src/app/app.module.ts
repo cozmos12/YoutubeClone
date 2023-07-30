@@ -26,6 +26,7 @@ import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { AuthConfigModule } from './auth/auth-config.module';
 
 
 
@@ -67,7 +68,8 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     VgBufferingModule,
 
 
-    MatSnackBarModule
+    MatSnackBarModule,
+      AuthConfigModule
 
   ],
   providers: [],

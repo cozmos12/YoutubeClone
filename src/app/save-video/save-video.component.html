@@ -78,11 +78,9 @@
 
   </div>
 
-  <div fxFlex="30%">
-    <app-video-player [videoUrl]="videoUrl" ></app-video-player>
+  <div fxFlex="50%">
+    <app-video-player *ngIf="videoAvailable" [videoUrl]="videoUrl" ></app-video-player>
   </div>
-  <div fxFlex="30%">
-  hi
-  </div>
+
 
 </div>

@@ -24,6 +24,8 @@ export class SaveVideoComponent implements OnInit {
   description:FormControl=new FormControl('')
   videoStatus:FormControl=new FormControl('')
   addOnBlur = true;
+  videoAvailable:boolean=false
+
   selectFile!:File;
   // @ts-ignore
   selectFileName:string;
@@ -52,8 +54,7 @@ export class SaveVideoComponent implements OnInit {
       console.log("first"+data.videoUrl)
       this.videoUrl=data.videoUrl;
       this.thumnailUrl=data.thumbnailUrl;
-      console.log("teast"+data.videoUrl);
-      console.log("test"+this.videoUrl);
+      this.videoAvailable=true;
     })
     this.saveVideoForm = new FormGroup({
       videoStatus:this.videoStatus,

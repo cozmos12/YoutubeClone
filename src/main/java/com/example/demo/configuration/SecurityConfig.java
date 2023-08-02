@@ -17,35 +17,14 @@ import org.springframework.security.oauth2.jwt.*;
 
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
-    private String issuer;
 
-    @Value("${oauth0.audience}")
-    private String audience;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll() // Tüm isteklere yetki gereksinimi olmadan izin ver
                 .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .cors(Customizer.withDefaults())
-                .oauth2ResourceServer()
-                .jwt();
-    }
-
-    @Bean
-    JwtDecoder jwtDecoder () {
-        NimbusJwtDecoder jwtDecoder = JwtDecoders.fromOidcIssuerLocation(issuer);
-
-        OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator(audience);
-        OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuer);
-        OAuth2TokenValidator<Jwt> withAudience = new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
-
-        jwtDecoder.setJwtValidator(withAudience);
-
-        return jwtDecoder;
+                .csrf().disable() // CSRF korumasını devre dışı bırak
+                .headers().frameOptions().disable(); // H2 Console'a erişimi sağlamak için X-Frame-Options'ı devre dışı bırak
     }
 
 }

@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 public String register(Authentication authentication){
-    return "success";
+    return "succ";
 }
 }

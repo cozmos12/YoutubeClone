@@ -14,9 +14,13 @@ import java.util.Set;
 public class VideoDto {
     private String id;
     private String title;
+    private Integer likesCount;
+    private Integer dislikeCount;
     private String description;
     private Set<String> tags;
     private VideoStatus videoStatus;
     private String thumbnailUrl;
     private String videoUrl;
+    private Integer viewCount;
+
 }

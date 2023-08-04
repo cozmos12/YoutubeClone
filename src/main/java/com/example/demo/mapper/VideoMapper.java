@@ -14,6 +14,9 @@ public class VideoMapper {
         videoDto.setThumbnailUrl(video.getThumbnailUrl());
         videoDto.setVideoUrl(video.getVideoUrl());
         videoDto.setVideoStatus(video.getVideoStatus());
+        videoDto.setLikesCount(video.getLike().get());
+        videoDto.setDislikeCount(video.getDislike().get());
+        videoDto.setViewCount(video.getViewCount().get());
 
         return videoDto;
     }

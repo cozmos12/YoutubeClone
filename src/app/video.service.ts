@@ -40,4 +40,32 @@ export class VideoService {
   saveVideo(videoMetaData: VideoDto)  : Observable<VideoDto> {
    return  this.httpClient.put<VideoDto>("http://localhost:8080/api/videos",videoMetaData)
   }
+
+  // @ts-ignore
+  getToken(token:String) : Observable<String> {
+    console.log("getToken")
+    try {
+
+       return  this.httpClient.get<String>("http://localhost:8080/api/user/register/"+token)
+
+    }catch (Error) {
+      console.log(Error)
+
+    }
+  }
+
+  // @ts-ignore
+  getAllVideos(): Observable<Array<VideoDto>>{
+   return  this.httpClient.get<Array<VideoDto>>("http://localhost:8080/api/videos")
+  }
+
+  likeVideo(videoId: string):Observable<VideoDto> {
+    return this.httpClient.post<VideoDto>("http://localhost:8080/api/videos/"+videoId+"/like",null)
+
+  }
+
+  disLikeVideo(videoId: string):Observable<VideoDto> {
+    return this.httpClient.post<VideoDto>("http://localhost:8080/api/videos/"+videoId+"/dislike",null)
+
+  }
 }

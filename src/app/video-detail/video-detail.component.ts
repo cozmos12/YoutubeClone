@@ -8,12 +8,16 @@ import {VideoService} from "../video.service";
   styleUrls: ['./video-detail.component.css']
 })
 export class VideoDetailComponent implements OnInit {
+  showSubscribeButton:boolean=false;
 
   videoId!: string;
   videoUrl!:string;
   description!:string
   title!:string
   tags:Array<string>=[]
+  likeCount:number=0;
+  dislikesCount:number=0;
+  viewCount:number=0;
 
 
 
@@ -24,11 +28,15 @@ export class VideoDetailComponent implements OnInit {
     // @ts-ignore
     this.videoId=this.activatedRoute.snapshot.params.videoId;
     this.videoService.getVideo(this.videoId).subscribe(data=>{
-      console.log("first"+data.videoUrl)
+
       this.videoUrl=data.videoUrl;
-     this.title= data.title
+      this.title= data.title
       this.description=data.description
       this.tags=data.tags
+      this.likeCount=data.likeCount
+      this.dislikesCount=data.dislikesCount
+      this.viewCount=data.viewCount
+
       this.videoAvailable=true
     })
 
@@ -36,4 +44,29 @@ export class VideoDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  disLikeVideo() {
+    this.videoService.disLikeVideo(this.videoId).subscribe(data=>{
+
+      this.likeCount=data.likeCount
+      this.dislikesCount=data.dislikesCount
+    })
+  }
+
+  likeVideo() {
+    this.videoService.likeVideo(this.videoId).subscribe(data=>{
+
+      this.likeCount=data.likeCount
+      this.dislikesCount=data.dislikesCount
+
+    })
+
+  }
+
+  subscribeToUser() {
+
+  }
+
+  unSubscribeToUser() {
+
+  }
 }

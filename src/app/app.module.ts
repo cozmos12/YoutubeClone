@@ -15,7 +15,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { SaveVideoComponent } from './save-video/save-video.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatInputModule} from "@angular/material/input";
-import {MatOptionModule} from "@angular/material/core";
+import {MatLineModule, MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { MatFormFieldModule} from "@angular/material/form-field";
 import {MatChipsModule} from "@angular/material/chips";
@@ -30,6 +30,19 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { AuthInterceptor, AuthModule } from 'angular-auth-oidc-client';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { HomeComponent } from './home/home.component';
+import { HistoryComponent } from './history/history.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { LikedVideosComponent } from './liked-videos/liked-videos.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import { FeaturedComponent } from './featured/featured.component';
+import { CardComponent } from './card/card.component';
+import { VideoCardComponent } from './video-card/video-card.component';
+import {MatCardModule} from "@angular/material/card";
+import {NgOptimizedImage} from "@angular/common";
+import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 
 
 
@@ -43,7 +56,15 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     SaveVideoComponent,
     VideoPlayerComponent,
-    VideoDetailComponent
+    VideoDetailComponent,
+    HomeComponent,
+    HistoryComponent,
+    SubscriptionsComponent,
+    LikedVideosComponent,
+    SidebarComponent,
+    FeaturedComponent,
+    CardComponent,
+    VideoCardComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +90,12 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     MatSnackBarModule,
     AuthConfigModule,
+    MatSidenavModule,
+    MatListModule,
+    MatLineModule,
+    MatCardModule,
+    NgOptimizedImage,
+    MatLegacyChipsModule,
 
 
   ],

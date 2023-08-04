@@ -11,7 +11,7 @@ import {HttpHeaders} from "@angular/common/http";
 
         config: {
             authority: 'https://dev-gpva6ltihjajt4ka.us.auth0.com',
-          redirectUrl: "http://localhost:4200/callback",
+            redirectUrl: window.location.origin,
             postLogoutRedirectUri: window.location.origin,
             clientId: '8YzAGIZzBzKUfqmbo3RIf08KAffX4GqW',
             scope: 'openid profile offline_access email',
@@ -20,14 +20,11 @@ import {HttpHeaders} from "@angular/common/http";
             useRefreshToken: true,
             logLevel: LogLevel.Debug,
             secureRoutes: ['http://localhost:8080/'],
-          customParamsAuthRequest: {
-            audience: 'http://localhost:8080/'
-          }
+
 
 
         }
       })],
-    providers:[],
     exports: [AuthModule],
 })
 export class AuthConfigModule {}

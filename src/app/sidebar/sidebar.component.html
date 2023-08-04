@@ -1,0 +1,30 @@
+<mat-sidenav [mode]="'side'" opened>
+  <br>
+
+  <mat-nav-list role="list" >
+    <mat-list-item role="listitem" routerLink="/featured">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+    </mat-list-item>
+
+    <br>
+    <br>
+
+    <mat-list-item role="listitem" routerLink="/subscriptions">
+      <mat-icon mat-icon>subscriptions</mat-icon>
+    </mat-list-item>
+
+    <br><br>
+
+
+    <mat-list-item role="listitem" routerLink="/history">
+      <mat-icon mat-list-icon>history</mat-icon>
+    </mat-list-item>
+
+    <br>
+    <br>
+    <mat-list-item role="listitem" routerLink="/liked-videos">
+      <mat-icon mat-list-icon>thumb_up</mat-icon>
+
+    </mat-list-item>
+  </mat-nav-list>
+</mat-sidenav>

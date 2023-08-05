@@ -37,6 +37,9 @@ export class HeaderComponent implements OnInit {
   }
 
   getIdToken(): void {
+    this.oidcSecurityService.getUserData().subscribe(data=>{
+      console.log(data)
+    })
 
     this.oidcSecurityService.getAccessToken().subscribe((token) => {
       this.token = token;

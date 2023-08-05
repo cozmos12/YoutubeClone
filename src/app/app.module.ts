@@ -43,6 +43,7 @@ import { VideoCardComponent } from './video-card/video-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
+import { CallbackComponent } from './callback/callback.component';
 
 
 
@@ -64,7 +65,8 @@ import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
     SidebarComponent,
     FeaturedComponent,
     CardComponent,
-    VideoCardComponent
+    VideoCardComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,

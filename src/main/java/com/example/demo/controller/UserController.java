@@ -23,8 +23,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
 
     public String register(@PathVariable String token){
-        System.out.println(token);
-        System.out.println("çalıştı");
+
     return  userRegistrationService.register(token);
     }
 
@@ -37,7 +36,6 @@ public class UserController {
 
     @PostMapping("/unSubscribe/{userId}")
     @ResponseStatus(HttpStatus.OK)
-
     public boolean unSubscribe(@PathVariable String userId){
         userService.unSubscribe(userId);
         return true;

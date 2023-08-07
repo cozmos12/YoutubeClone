@@ -71,8 +71,7 @@ public class VideoController {
         videoService.addComment(videoId, commentDto);
 
     }
-
-    @GetMapping("/{videoId}/coment")
+    @GetMapping("/{videoId}/comment")
     @ResponseStatus(HttpStatus.OK)
      public List<CommentDto> getComment(@PathVariable String videoId){
         return videoService.getAllComments(videoId);

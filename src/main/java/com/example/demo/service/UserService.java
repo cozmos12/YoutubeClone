@@ -60,7 +60,8 @@ public class UserService {
 
     public void subscribe(String userId) {
         user.addToSubscribeUsers(userId);
-       User user1 =userRepository.findById(userId).orElseThrow(()->new IllegalStateException("Cannot find user "+userId));
+      // User user1 =userRepository.findById(userId).orElseThrow(()->new IllegalStateException("Cannot find user "+userId));
+       User user1=userRepository.findBySub(userId);
        user1.addToSubscribers(user.getId());
        userRepository.save(user);
        userRepository.save(user1);
@@ -68,7 +69,8 @@ public class UserService {
 
     public void unSubscribe(String userId) {
         user.removeFromSubscribeUsers(userId);
-        User user1 =userRepository.findById(userId).orElseThrow(()->new IllegalStateException("Cannot find user "+userId));
+       // User user1 =userRepository.findById(userId).orElseThrow(()->new IllegalStateException("Cannot find user "+userId));
+        User user1=userRepository.findBySub(userId);
         user1.removeFromSubscribers(user.getId());
         userRepository.save(user);
         userRepository.save(user1);

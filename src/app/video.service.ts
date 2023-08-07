@@ -43,7 +43,6 @@ export class VideoService {
 
   // @ts-ignore
   getToken(token:String) : Observable<String> {
-    console.log("getToken")
     try {
 
        return  this.httpClient.get<String>("http://localhost:8080/api/user/register/"+token)

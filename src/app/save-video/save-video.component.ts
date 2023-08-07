@@ -127,8 +127,8 @@ export class SaveVideoComponent implements OnInit {
       "videoStatus":this.saveVideoForm.get('videoStatus')?.value,
       "thumbnailUrl":this.thumnailUrl,
       "videoUrl":this.videoUrl,
-      "likeCount":0,
-      "dislikesCount":0,
+      "likesCount":0,
+      "dislikeCount":0,
       "viewCount":0,
 
 

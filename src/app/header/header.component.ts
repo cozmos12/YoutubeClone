@@ -15,6 +15,9 @@ export class HeaderComponent implements OnInit {
 
   isAuthenticated: boolean = false;
 
+  userData!:any;
+  userId!:any;
+
   constructor(private oidcSecurityService: OidcSecurityService, private http: HttpClient,private videoService:VideoService ) {}
 
   ngOnInit(): void {
@@ -33,24 +36,25 @@ export class HeaderComponent implements OnInit {
   }
 
   logOff() {
-    this.oidcSecurityService.logoff().subscribe((result) => console.log(result));
+    this.oidcSecurityService.logoffAndRevokeTokens()
+    this.oidcSecurityService.logoffLocal()
   }
 
   getIdToken(): void {
-    this.oidcSecurityService.getUserData().subscribe(data=>{
-      console.log(data)
-    })
+    this.oidcSecurityService.userData$.subscribe((userData:any) => {
+      if (userData) {
+        this.userId=userData.userData.sub;
+      }
+    });
 
     this.oidcSecurityService.getAccessToken().subscribe((token) => {
       this.token = token;
-      console.log("click");
+
       // @ts-ignore
       this.videoService.getToken(this.token).subscribe(
         (response) => {
-          console.log("Token received from the backend:", response);
         },
         (error: any) => {
-          console.error("Error while getting the token:", error);
         }
       );
     });

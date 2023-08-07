@@ -42,8 +42,9 @@ import { CardComponent } from './card/card.component';
 import { VideoCardComponent } from './video-card/video-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
-import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import { CallbackComponent } from './callback/callback.component';
+import { CommentComponent } from './comment/comment.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 
 
@@ -66,7 +67,8 @@ import { CallbackComponent } from './callback/callback.component';
     FeaturedComponent,
     CardComponent,
     VideoCardComponent,
-    CallbackComponent
+    CallbackComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,7 @@ import { CallbackComponent } from './callback/callback.component';
     MatLineModule,
     MatCardModule,
     NgOptimizedImage,
-    MatLegacyChipsModule,
+    MatMenuModule,
 
 
   ],
